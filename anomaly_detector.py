@@ -19,7 +19,8 @@ def detect_anomalies():
             "issue": "Critical unresolved ticket",
             "priority": row["priority"],
             "status": row["status"],
-            "agent_id": row["agent_id"]
+            "agent_id": row["agent_id"],
+            "type": "critical" 
         })
 
     # 2. Long resolution time
@@ -33,7 +34,8 @@ def detect_anomalies():
             "ticket_id": row["ticket_id"],
             "issue": "Abnormally long resolution time",
             "resolution_time_hrs": row["resolution_time_hrs"],
-            "agent_id": row["agent_id"]
+            "agent_id": row["agent_id"],
+            "type": "slowres"
         })
 
     # 3. Poor customer ratings
@@ -47,7 +49,8 @@ def detect_anomalies():
             "ticket_id": row["ticket_id"],
             "issue": "Poor customer rating",
             "customer_rating": row["customer_rating"],
-            "agent_id": row["agent_id"]
+            "agent_id": row["agent_id"],
+            "type": "rating"
         })
 
     return anomalies
